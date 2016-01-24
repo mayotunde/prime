@@ -8,17 +8,15 @@
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.rawgit.com/mayotunde/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div id="map" style="width: 1000px;height: 1000px"></div>
+<div id="map" style="width: 700px;height: 500px"></div>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src='https://cdn.rawgit.com/mayotunde/prime/gh-pages/src/easy-button.js'></script>
 <script src="https://cdn.rawgit.com/mayotunde/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 <script>
 var map = L.map('map').setView([7.3931, 3.8677], 10);
-
 L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
 	type: 'map',
 	ext: 'jpg',
@@ -27,14 +25,20 @@ L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
 
 var school = L.layerGroup();
 
+
 var icon = L.AwesomeMarkers.icon({icon: 'coffee',markerColor: 'green',prefix: 'fa'});
 
+
+
 $.getJSON("https://cdn.rawgit.com/mayotunde/prime/gh-pages/schools.geojson", function(data) {
-L.geoJson(points, {pointToLayer: function(feature, latlng){
+
+L.geoJson(data, {pointToLayer: function(feature, latlng){
 marker = L.marker(latlng, {icon: icon});
+
 marker.bindPopup(feature.properties.type +'<br>' + feature.properties.settlement)
 return marker;
  }}).addTo(school);
+
 });
 
 var button1 = L.easyButton({
@@ -58,9 +62,7 @@ var button1 = L.easyButton({
 }).addTo(map);
 
 
-
 var clinic = L.layerGroup();
-
 var point2 = [{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.820409814454616,7.392208344884645]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.889056760241785,7.436272262788571]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.93822281600827,7.356957210561506]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.837571550901409,7.326344383386147]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.769388435829018,7.334229505537375]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.846848165196972,7.459927629242258]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.922452571705812,7.462710613530927]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.808350215870384,7.487293641414169]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.807422554440828,7.456216983524032]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.772171420117688,7.406123266327991]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.802320416578268,7.360204025564952]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[4.005478269651103,7.352782734128502]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.902044020255573,7.30779115479502]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.888592929527007,7.372263624149185]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.893811025068261,7.378815232995426]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.898391353376696,7.385308863002321]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.91508925910871,7.36832106307357]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.900130718557114,7.362871052174927]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.889172717920479,7.382583857552999]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.881055680411861,7.37684395245762]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.880823765054473,7.382873751749735]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.899608909002988,7.373713095132866]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.878388653801887,7.370524258968767]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.886331754792463,7.377771613887176]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.914045640000459,7.37278543370331]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.913523830446333,7.382062047998874]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.900072739717766,7.387396101218823]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.890970061940245,7.388149826130337]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.829570471071484,7.274337364491645]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.825395994638481,7.257175628044853]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.916074899377613,7.259958612333522]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.763474594215595,7.30610976845395]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.977764384443108,7.4601015657603]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.96964734693449,7.429488738584941]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.9949261208899,7.42995256929972]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.983562268377835,7.28778845522021]}},{"type":"Feature","properties":{"Name":"","Description":""},"geometry":{"type":"Point","coordinates":[3.98472184516478,7.263669258051746]}}];
 
 var icon2 = L.AwesomeMarkers.icon({icon: 'ambulance',markerColor: 'green',prefix: 'fa'});
@@ -69,7 +71,6 @@ L.geoJson(point2, {pointToLayer: function(feature, latlng){
 marker =  L.marker(latlng, {icon: icon2});
 return marker;
 }}).addTo(clinic);
-
 var button2 = L.easyButton({
     states: [{
             stateName: 'add-markers',   
@@ -90,8 +91,6 @@ var button2 = L.easyButton({
       }]
 }).addTo(map);
 
-
-
 </script>
 <div id='logo' style='position:absolute;bottom:80px;left:20px;float:right';>
 <img src="https://lh3.googleusercontent.com/jY9fWF3HjY1NPeluF6LQDyDRL2zqGevA_IW0jKu5Z6GqsiSw6mHE_oCNDvGV_PnL_G6JFZKzZDHNqSHd6wS9F12GHCGpPiDU2yF2RK3ELBYotYSNMPOVUnyyobGCGKDA1Rc3Xga6vaxbx0MN3YR2WVvwW6avdpXMUZdZNAtBVPlV0famTCd-dXeHDmr53KNPQQNWLLM5Wgp3rUYvxbINhvTCnMlaUeHrp0Hab5BJaTB6SbabPpnPNPT1X3uvz6nQs3PgSbbG2pevw4Yn91DQI_kTuIcf7fmS39MdOm2LSFpB0wHgEvvlloLJfpXw0TvGjBpgZFeA8pIdmeoAr6q4aonVVkydr3WMN8v6DJ2DzFcfgYUHalxrDPoJTiZoh0U-qNTeUxc-kpXca8xlmO2EpZg4_SFbdZUU6ZNgQBiJoP99IwZ03Qzvp_0bdEbmigdzY8RLwP5riKHgotnXY4E71qS8yzlD8JvK4bK5ojBzvZvXlnfXDo0y82a8LJCHqjxbK3RbKDYZybb72d31gc-bpx6m1sKT24RnHZp2hq9FVbs=w80-h50-no" /><br>
@@ -99,3 +98,6 @@ var button2 = L.easyButton({
 </div>
 </body>
 </html>
+
+
+
