@@ -30,7 +30,7 @@ var icon = L.AwesomeMarkers.icon({icon: 'coffee',markerColor: 'green',prefix: 'f
 
 
 
-$.getJSON("https://cdn.rawgit.com/mayotunde/prime/gh-pages/schools.geojson", function(data) {
+$.getJSON("https://cdn.rawgit.com/mayotunde/prime/gh-pages/clinic.geojson", function(data) {
 
 L.geoJson(data, {pointToLayer: function(feature, latlng){
 marker = L.marker(latlng, {icon: icon});
