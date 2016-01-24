@@ -16,7 +16,7 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '
 
 var style= {fillColor:'brown', color:'black', fillOpacity:0.5};
 
-  $.getJSON("", function(data) {
+  $.getJSON("https://cdn.rawgit.com/mayotunde/prime/gh-pages/clinic.geojson", function(data) {
     var geojson = L.geoJson(data, {
       pointToLayer: function (feature, latlng) {
         marker = new L.circleMarker(latlng, style)
