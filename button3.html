@@ -27,7 +27,7 @@ L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
 
 var school = L.layerGroup();
 
-var icon = L.AwesomeMarkers.icon({icon: 'university',markerColor: 'green',prefix: 'fa'});
+var icon = L.AwesomeMarkers.icon({icon: 'coffee',markerColor: 'green',prefix: 'fa'});
 
 $.getJSON("https://cdn.rawgit.com/mayotunde/prime/gh-pages/schools.geojson", function(data) {
 L.geoJson(points, {pointToLayer: function(feature, latlng){
@@ -40,7 +40,7 @@ return marker;
 var button1 = L.easyButton({
     states: [{
             stateName: 'add-markers',   
-            icon:      'fa-university',          
+            icon:      'fa-coffee',          
             title:     'add school layer', 
             onClick: function(btn, map) {  
                 map.addLayer(school);
