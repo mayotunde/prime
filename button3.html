@@ -28,8 +28,6 @@ var school = L.layerGroup();
 
 var icon = L.AwesomeMarkers.icon({icon: 'coffee',markerColor: 'green',prefix: 'fa'});
 
-
-
 $.getJSON("https://cdn.rawgit.com/mayotunde/prime/gh-pages/schools.geojson", function(data) {
 
 L.geoJson(data, {pointToLayer: function(feature, latlng){
@@ -38,8 +36,9 @@ marker = L.marker(latlng, {icon: icon});
 marker.bindPopup(feature.properties.type +'<br>' + feature.properties.settlement)
 return marker;
  }}).addTo(school);
-
 });
+
+
 
 var button1 = L.easyButton({
     states: [{
